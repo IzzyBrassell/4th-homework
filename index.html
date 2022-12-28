@@ -7,9 +7,12 @@
     <title>Document</title>
 </head>
 <body>
+    <div id="start-button">
+        <button onclick="startQuiz()">Start Quiz</button>
+      </div>
     <div id="score"></div>
     <div id="timer">Time remaining: 80 seconds</div>
-    <div id="quiz">
+    <div id="quiz" style="display: none;">
         <div id="question"></div>
         <div id="choices">
           <button id="choice0" onclick="checkAnswer(this.innerText)"></button>
@@ -17,6 +20,12 @@
           <button id="choice2" onclick="checkAnswer(this.innerText)"></button>
           <button id="choice3" onclick="checkAnswer(this.innerText)"></button>
         </div>
+      </div>
+      <div id="high-scores-button">
+        <button onclick="showHighScores()">View High Scores</button>
+      </div>
+      <div id="high-scores" style="display: none;">
+        <ol></ol>
       </div>
     <script src="./assets/script.js"></script>
 </body>
