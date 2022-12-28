@@ -6,6 +6,26 @@ class Question {
     }
 }
 
+let timeRemaining = 80;
+
+function startTimer() {
+  const timerInterval = setInterval(() => {
+    timeRemaining--;
+    updateTimer();
+    if (timeRemaining <= 0) {
+      clearInterval(timerInterval);
+      alert("Time's up!");
+    }
+  }, 1000);
+}
+
+function updateTimer() {
+  const timerElement = document.getElementById("timer");
+  timerElement.innerText = `Time remaining: ${timeRemaining} seconds`;
+}
+
+startTimer();
+
 
 const question1 = new Question (
     'Which would be the correct way to set a boolean in Javascript',
@@ -87,6 +107,7 @@ class Quiz {
       choiceElement.innerText = choices[i];
     }
   }
+
   
   let score = 0;
 
@@ -95,7 +116,9 @@ class Quiz {
       score += 12.5;
     } else {
       score -= 12.5;
+      timeRemaining -= 10;
     }
+    updateTimer();
     showNextQuestion();
     updateScore();
   }
